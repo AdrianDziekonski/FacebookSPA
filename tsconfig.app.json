@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    //"enableIvy": false, //jakis bląd z komtaybilością z IVY wg SO ma to pomóc
     "outDir": "./out-tsc/app",
     "types": []
   },
@@ -11,4 +12,5 @@
     "src/test.ts",
     "src/**/*.spec.ts"
   ]
+  //, "enableIvy": false
 }

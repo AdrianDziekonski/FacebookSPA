@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "noUnusedLocals": false, //nie widziało httpClient wiec wg podpowiedz z SO dodany ten zapis
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
