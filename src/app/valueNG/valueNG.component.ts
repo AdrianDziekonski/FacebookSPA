@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //import { HttpClientModule } from '@angular/common/http';
 import {HttpClient} from '@angular/common/http';
-import { error } from 'console';
+//import { error } from 'console';
 
 @Component({
   selector: 'app-valueNG',
