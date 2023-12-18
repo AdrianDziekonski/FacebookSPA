@@ -2,21 +2,24 @@
   <div class="container-fluid" bis_skin_checked="1">
     <a class="navbar-brand" href="#"><b>PODWÓRKO</b></a>
 
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Znajomi</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Statusy</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" aria-disabled="true">Wiadomości</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="text" placeholder="Login">
-        <input class="form-control me-2" type="password" placeholder="Password">
-        <button class="btn btn-outline-dark bg-success" type="submit">Zaloguj</button>
-      </form>
+    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Znajomi</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Statusy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" aria-disabled="true">Wiadomości</a>
+      </li>
+    </ul>
+    <form #loginForm="ngForm" class="d-flex" role="search" (ngSubmit)="login()">
+      <input class="form-control me-2" type="text" placeholder="Login" [(ngModel)]="model.username" name="username"
+        required>
+      <input class="form-control me-2" type="password" placeholder="Password" [(ngModel)]="model.password"
+        name="password" required>
+      <button [disabled]="!loginForm.valid" class="btn btn-outline-dark" type="submit"
+        id="zalogujNavbar">Zaloguj</button>
+    </form>
   </div>
 </nav>
