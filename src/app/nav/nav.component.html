@@ -12,8 +12,23 @@
       <li class="nav-item">
         <a class="nav-link" href="#" aria-disabled="true">Wiadomości</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" aria-disabled="true" (click)="loggedOut()">Wyloguj</a>
+      </li>
     </ul>
-    <form #loginForm="ngForm" class="d-flex" role="search" (ngSubmit)="login()">
+    <div *ngIf="loggedIn()" class="dropdown">
+      <a class=" btn dropdown-toggle" href="#" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true">
+        Witaj username
+      </a>
+
+      <ul class="dropdown-menu" id="dropdownPoZalogowaniu">
+        <li><a class="dropdown-item" href="#"><i class="fa fa-user "></i>Edytuj profil</a></li>
+        <div class="dropdown-divider"></div>
+        <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out "></i>Wyloguj</a></li>
+      </ul>
+    </div>
+
+    <form *ngIf="!loggedIn()" #loginForm="ngForm" class="d-flex" role="search" (ngSubmit)="login()">
       <input class="form-control me-2" type="text" placeholder="Login" [(ngModel)]="model.username" name="username"
         required>
       <input class="form-control me-2" type="password" placeholder="Password" [(ngModel)]="model.password"
