@@ -18,7 +18,7 @@
     </ul>
     <div *ngIf="loggedIn()" class="dropdown">
       <a class=" btn dropdown-toggle" href="#" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true">
-        Witaj username
+        Witaj!
       </a>
 
       <ul class="dropdown-menu" id="dropdownPoZalogowaniu">
@@ -29,9 +29,9 @@
     </div>
 
     <form *ngIf="!loggedIn()" #loginForm="ngForm" class="d-flex" role="search" (ngSubmit)="login()">
-      <input class="form-control me-2" type="text" placeholder="Login" [(ngModel)]="model.username" name="username"
+      <input class="form-control me-2" type="text" placeholder="Nazwa użytkownika" [(ngModel)]="model.username" name="username"
         required>
-      <input class="form-control me-2" type="password" placeholder="Password" [(ngModel)]="model.password"
+      <input class="form-control me-2" type="password" placeholder="Hasło" [(ngModel)]="model.password"
         name="password" required>
       <button [disabled]="!loginForm.valid" class="btn btn-outline-dark" type="submit"
         id="zalogujNavbar">Zaloguj</button>
