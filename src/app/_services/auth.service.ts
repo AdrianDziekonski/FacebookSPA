@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map} from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 //dekorator pozwala wstrzykiwać do serwisu
 @Injectable({
@@ -8,7 +9,7 @@ import { map} from 'rxjs/operators';
 })
 export class AuthService {
 
-  baseUrl='http://localhost:5000/api/auth/';
+  baseUrl=environment.apiUrl +'auth/';
 
 constructor(private http: HttpClient) { }
 

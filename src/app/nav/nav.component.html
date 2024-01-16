@@ -1,18 +1,18 @@
 <nav class="navbar navbar-expand-md navbar-dark  bg-primary">
   <div class="container-fluid" bis_skin_checked="1">
-    <a class="navbar-brand" href="#"><b>PODWÓRKO</b></a>
+    <a class="navbar-brand"[routerLink]="['/home']"><b>PODWÓRKO</b></a>
 
     <ul class="navbar-nav me-auto mb-2 mb-md-0">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Znajomi</a>
+      <li class="nav-item" routerLinkActive="router-link-active">
+        <a class="nav-link" aria-current="page" [routerLink]="['/znajomi']" >Znajomi</a>
+      </li>
+      <li class="nav-item" routerLinkActive="router-link-active">
+        <a class="nav-link" [routerLink]="['/statusy']"  >Statusy</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Statusy</a>
+        <a class="nav-link" [routerLink]="['/wiadomosci']"  aria-disabled="true">Wiadomości</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" aria-disabled="true">Wiadomości</a>
-      </li>
-      <li class="nav-item">
+      <li class="nav-item" routerLinkActive="router-link-active">
         <a class="nav-link" href="#" aria-disabled="true" (click)="loggedOut()">Wyloguj</a>
       </li>
     </ul>
