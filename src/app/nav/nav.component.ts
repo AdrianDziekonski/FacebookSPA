@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
+import { Router } from '@angular/router';
 
 
 
@@ -13,7 +14,7 @@ export class NavComponent implements OnInit {
 
   model: any={};
 
-  constructor(private authService: AuthService, private alertify: AlertifyService) { }
+  constructor(private authService: AuthService, private alertify: AlertifyService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,7 +24,10 @@ this.authService.login(this.model).subscribe(next=>{
   this.alertify.success('zalogwałeś się do aplikacji');
 },  error=>{
   this.alertify.error('wystąpił błąd logowania');
-});
+}, ()=>{
+  this.router.navigate(['/znajomi'])  //przekierowanie do strony po zalogowaniu w funkcji anonimowej
+}
+);
   }
 //sprawdzenie czy zalogowany
   loggedIn(){
@@ -33,6 +37,7 @@ this.authService.login(this.model).subscribe(next=>{
     loggedOut(){
 localStorage.removeItem('token');
 this.alertify.message('zostałeś wylogowany');
+this.router.navigate(['/home'])
     }
   }
 
