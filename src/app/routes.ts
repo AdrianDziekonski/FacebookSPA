@@ -7,10 +7,18 @@ import { AuthGuard } from './_guards/auth.guard';
 
 
 export const appRoutes: Routes=[
-  {path: 'home', component: HomeComponent},
-  {path: 'znajomi', component: UserListComponent, canActivate: [AuthGuard]}, //auth guard zabezpieczenie routingu (w folderze app jest)
-  {path: 'statusy', component: LikesComponent, canActivate: [AuthGuard]},
-  {path: 'wiadomosci', component: MessagesComponent, canActivate: [AuthGuard]},
-  {path: '**', redirectTo: 'home',pathMatch: 'full'},
+  {path: '', component: HomeComponent},
+  {path:'',
+runGuardsAndResolvers:'always',
+canActivate: [AuthGuard],
+children:[
+  {path: 'znajomi', component: UserListComponent}, //auth guard zabezpieczenie routingu (w folderze app jest)
+  {path: 'statusy', component: LikesComponent},
+  {path: 'wiadomosci', component: MessagesComponent},
 
 ]
+},
+
+  {path: '**', redirectTo: '',pathMatch: 'full'}
+
+];

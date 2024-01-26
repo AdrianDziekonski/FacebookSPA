@@ -13,19 +13,17 @@
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/wiadomosci']"  aria-disabled="true">Wiadomości</a>
       </li>
-      <li class="nav-item" routerLinkActive="router-link-active">
-        <a class="nav-link" href="#" aria-disabled="true" (click)="loggedOut()">Wyloguj</a>
-      </li>
+
     </ul>
-    <div *ngIf="loggedIn()" class="dropdown">
-      <a class=" btn dropdown-toggle" href="#" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true">
-        Witaj!
+    <div *ngIf="loggedIn()" class="dropdown" dropdown>
+      <a class=" btn dropdown-toggle" href="#" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" dropdownToggle>
+        Witaj na portalu!
       </a>
 
-      <ul class="dropdown-menu" id="dropdownPoZalogowaniu">
+      <ul class="dropdown-menu mt-3"  *dropdownMenu>
         <li><a class="dropdown-item" href="#"><i class="fa fa-user "></i>Edytuj profil</a></li>
         <div class="dropdown-divider"></div>
-        <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out "></i>Wyloguj</a></li>
+        <li><a class="dropdown-item" (click)="loggedOut()"><i class="fa fa-sign-out "></i>Wyloguj</a></li>
       </ul>
     </div>
 

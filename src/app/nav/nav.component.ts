@@ -23,7 +23,7 @@ export class NavComponent implements OnInit {
 this.authService.login(this.model).subscribe(next=>{
   this.alertify.success('zalogwałeś się do aplikacji');
 },  error=>{
-  this.alertify.error('wystąpił błąd logowania');
+  this.alertify.error(error);
 }, ()=>{
   this.router.navigate(['/znajomi'])  //przekierowanie do strony po zalogowaniu w funkcji anonimowej
 }

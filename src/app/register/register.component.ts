@@ -25,7 +25,7 @@ register(){
   this.authService.register(this.model).subscribe(()=>{
     this.alertify.success('rejestracja udana');
   }, error=>{
-  this.alertify.error('błąd rejestracji');
+  this.alertify.error(error);
 
   });
 }
