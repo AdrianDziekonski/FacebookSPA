@@ -14,7 +14,7 @@ export class NavComponent implements OnInit {
 
   model: any={};
 
-  constructor(private authService: AuthService, private alertify: AlertifyService, private router: Router) { }
+  constructor(public authService: AuthService, private alertify: AlertifyService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -31,8 +31,9 @@ this.authService.login(this.model).subscribe(next=>{
   }
 //sprawdzenie czy zalogowany
   loggedIn(){
-    const token=localStorage.getItem('token');
-    return !!token; //jest token to true a nie to false !! to skrót
+    return this.authService.loggedIn();
+    // const token=localStorage.getItem('token');
+    // return !!token; //jest token to true a nie to false !! to skrót
   }
     loggedOut(){
 localStorage.removeItem('token');

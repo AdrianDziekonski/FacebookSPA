@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
@@ -22,12 +22,24 @@ import { AuthGuard } from './_guards/auth.guard';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { UserCardComponent } from './users/userCard/userCard.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
+import { TabsModule } from 'ngx-bootstrap';
+import { UserDetailResolver } from './_resolvers/user-datail.resolveer';
+import { UserListResolver } from './_resolvers/user-list-resolver';
+import { NgxGalleryModule } from 'ngx-gallery';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { UserEditResolver } from './_resolvers/user-edit.resolveer';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
 }
 
-
+export class CustomHammerConfig extends HammerGestureConfig  {
+  overrides = {
+      pinch: { enable: false },
+      rotate: { enable: false }
+  };
+}
 
 @NgModule({
   declarations: [
@@ -38,7 +50,9 @@ export function tokenGetter(){
       UserListComponent,
       LikesComponent,
       MessagesComponent,
-      UserCardComponent
+      UserCardComponent,
+      UserDetailComponent,
+      UserEditComponent,
    ],
   imports: [
     BrowserModule,
@@ -52,6 +66,9 @@ export function tokenGetter(){
       }
   }),
   RouterModule.forRoot(appRoutes),
+  TabsModule.forRoot(),
+  NgxGalleryModule,
+
   [
     BsDropdownModule.forRoot()
   ]
@@ -61,7 +78,14 @@ export function tokenGetter(){
     AlertifyService,
     UserService,
     AuthGuard,
-    ErrorInterceptorProvider
+    ErrorInterceptorProvider,
+    UserDetailResolver,
+    UserListResolver,
+   // UserEditResolver,
+    [
+      { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
+      ]
+
   ],
   bootstrap: [AppComponent]
 })

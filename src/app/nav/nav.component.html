@@ -17,11 +17,11 @@
     </ul>
     <div *ngIf="loggedIn()" class="dropdown" dropdown>
       <a class=" btn dropdown-toggle" href="#" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" dropdownToggle>
-        Witaj na portalu!
+        Witaj {{authService.decodedToken?.unique_name| titlecase}}
       </a>
 
       <ul class="dropdown-menu mt-3"  *dropdownMenu>
-        <li><a class="dropdown-item" href="#"><i class="fa fa-user "></i>Edytuj profil</a></li>
+        <li><a class="dropdown-item" [routerLink]="['uzytkownik/edycja']"  ><i class="fa fa-user "></i>Edytuj profil</a></li>
         <div class="dropdown-divider"></div>
         <li><a class="dropdown-item" (click)="loggedOut()"><i class="fa fa-sign-out "></i>Wyloguj</a></li>
       </ul>

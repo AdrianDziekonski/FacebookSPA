@@ -1,0 +1,132 @@
+<div class="container">
+  <div class="row">
+    <h1>Profil {{user.username}}</h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top img-thumbnail" src="{{user.photoUrl}}">
+        <div class="card-body">
+          <div>
+            <strong>Imię</strong>
+            <p>{{user?.username}}</p>
+          </div>
+          <div>
+            <strong>Wiek</strong>
+            <p>{{user?.age}}</p>
+          </div>
+          <div>
+            <strong>Miasto</strong>
+            <p>{{user?.city}}, {{user?.country}}</p>
+            <div>
+
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="btn-group d-flex">
+          <button class="btn btn-warning btn-sm" >
+            <i class="fa fa-thumbs-up"></i>
+          </button>
+          <button class="btn btn-success btn-sm">
+            <i class="fa fa-envelope"></i>
+          </button>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+     <div class="tab-panel">
+      <tabset class="user-tabset">
+        <tab heading="Informacje {{user.username}}">
+        <table class="user-table" >
+<tr>
+  <td class="user-table-td">
+<h5>Płeć</h5>
+<p>{{user.gender}}</p>
+  </td>
+  <td class="user-table-td">
+    <h5>Wiek</h5>
+    <p>{{user.age}}</p>
+  </td>
+</tr>
+<tr>
+  <td >
+<h5>Miasto</h5>
+<p>{{user.city}}</p>
+  </td>
+  <td >
+    <h5>Kraj</h5>
+    <p>{{user.country}}</p>
+  </td>
+</tr>
+<tr>
+  <td >
+<h5>Zawód</h5>
+<p>{{user.work}}</p>
+  </td>
+  <td >
+    <h5>Auto</h5>
+    <p>{{user.car}}</p>
+  </td>
+</tr>
+        </table>
+      </tab>
+      <tab heading="O mnie">
+        <tr>
+          <td >
+        <h5>Typ osobowości</h5>
+        <p>{{user.personality}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td >
+            <h5>Motto</h5>
+            <p>{{user.motto}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td >
+        <h5>Opis</h5>
+        <p>{{user.description}}</p>
+          </td>
+        </tr>
+      </tab>
+      <tab heading="Hobby i pasje">
+        <tr>
+          <td >
+        <h5>Hobby</h5>
+        <p>{{user.hobby}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td >
+            <h5>Sport</h5>
+            <p>{{user.sport}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td >
+        <h5>Filmy</h5>
+        <p>{{user.movies}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td >
+            <h5>Muzyka</h5>
+            <p>{{user.music}}</p>
+          </td>
+        </tr>
+      </tab>
+      <tab heading="Zdjęcia">
+        <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+
+      </tab>
+      <tab heading="Wiadomości">
+
+      </tab>
+      </tabset>
+     </div>
+    </div>
+  </div>
+</div>
