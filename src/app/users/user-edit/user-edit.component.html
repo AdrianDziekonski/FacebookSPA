@@ -1,3 +1,133 @@
-<p>
-  trza z tym decodowaniem tokena pokombinować
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+    <h1>Edycja {{user.username | titlecase}}</h1>
+  </div>
+  <div class="col-sm-8">
+    <div class="alert alert-info">
+      <p><strong>Informacja: </strong>Dokonałeś zmian. Nie zapisane zmiany zostaną utracone!</p>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top img-thumbnail" src="{{user.photoUrl}}">
+        <div class="card-body">
+          <div>
+            <strong>Imię</strong>
+            <p>{{user?.username | titlecase}}</p>
+          </div>
+          <div>
+            <strong>Wiek</strong>
+            <p>{{user?.age}}</p>
+          </div>
+          <div>
+            <strong>Miasto</strong>
+            <p>{{user?.city}}, {{user?.country}}</p>
+            <div>
+
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-success btn-sm"> Zapisz edycję profilu
+              <i class="fa fa-check-square btn-block"></i>
+            </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <form>
+        <div class="tab-panel">
+          <tabset class="user-tabset">
+            <tab heading="Informacje">
+              <table class="user-table">
+                <tr>
+                  <td class="user-table-td">
+                    <h5>Płeć</h5>
+                    <textarea class="form-control" name="gender" rows="1" [(ngModel)]="user.gender"></textarea>
+                  </td>
+                  <td class="user-table-td">
+                    <h5>Wiek</h5>
+                    <textarea class="form-control" name="age" rows="1" [(ngModel)]="user.age"></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Miasto</h5>
+                    <textarea class="form-control" name="city" rows="1" [(ngModel)]="user.city"></textarea>
+                  </td>
+                  <td>
+                    <h5>Kraj</h5>
+                    <textarea class="form-control" name="country" rows="1" [(ngModel)]="user.country"></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Zawód</h5>
+                    <textarea class="form-control" name="work" rows="1" [(ngModel)]="user.work"></textarea>
+                  </td>
+                  <td>
+                    <h5>Auto</h5>
+                    <textarea class="form-control" name="car" rows="1" [(ngModel)]="user.car"></textarea>
+                  </td>
+                </tr>
+              </table>
+            </tab>
+            <tab heading="O mnie">
+              <tr>
+                <td>
+                  <h5>Typ osobowości</h5>
+                  <textarea class="form-control opis-hobby" name="personality" rows="1" [(ngModel)]="user.personality"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h5>Motto</h5>
+                  <textarea class="form-control opis-hobby" name="motto" rows="4" [(ngModel)]="user.motto"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h5>Opis</h5>
+                  <textarea class="form-control opis-hobby" name="description" rows="4" [(ngModel)]="user.description"></textarea>
+                </td>
+              </tr>
+            </tab>
+            <tab heading="Hobby i pasje">
+              <tr>
+                <td>
+                  <h5>Hobby</h5>
+                  <textarea class="form-control opis-hobby" name="hobby" rows="4" [(ngModel)]="user.hobby"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h5>Sport</h5>
+                  <textarea class="form-control opis-hobby" name="sport" rows="4" [(ngModel)]="user.sport"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h5>Filmy</h5>
+                  <textarea class="form-control opis-hobby" name="movies" rows="4" [(ngModel)]="user.movies"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h5>Muzyka</h5>
+                  <textarea class="form-control opis-hobby" name="music" rows="4" [(ngModel)]="user.music"></textarea>
+                </td>
+              </tr>
+            </tab>
+            <tab heading="Zdjęcia">
+              <p>Edycja zdjęc do zrobenia</p>
+
+            </tab>
+          </tabset>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

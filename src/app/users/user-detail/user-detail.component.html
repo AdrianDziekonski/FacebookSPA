@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h1>Profil {{user.username}}</h1>
+    <h1>Profil {{user.username | titlecase}}</h1>
   </div>
   <div class="row">
     <div class="col-sm-4">
@@ -9,7 +9,7 @@
         <div class="card-body">
           <div>
             <strong>Imię</strong>
-            <p>{{user?.username}}</p>
+            <p>{{user?.username | titlecase}}</p>
           </div>
           <div>
             <strong>Wiek</strong>
@@ -38,7 +38,7 @@
     <div class="col-sm-8">
      <div class="tab-panel">
       <tabset class="user-tabset">
-        <tab heading="Informacje {{user.username}}">
+        <tab heading="Informacje o {{user.username | titlecase}}">
         <table class="user-table" >
 <tr>
   <td class="user-table-td">

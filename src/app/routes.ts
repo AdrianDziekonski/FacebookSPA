@@ -19,7 +19,7 @@ canActivate: [AuthGuard],
 children:[
   {path: 'znajomi', component: UserListComponent,resolve: {users:UserListResolver}}, //auth guard zabezpieczenie routingu (w folderze app jest)
   {path: 'znajomi/:id', component: UserDetailComponent,resolve: {user:UserDetailResolver}},
-  {path: 'uzytkownik/edycja', component: UserEditComponent},//,resolve: {user:UserEditResolver}},
+  {path: 'uzytkownik/edycja', component: UserEditComponent,resolve: {user:UserEditResolver}},
   {path: 'statusy', component: LikesComponent},
   {path: 'wiadomosci', component: MessagesComponent},
 

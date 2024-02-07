@@ -81,7 +81,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     ErrorInterceptorProvider,
     UserDetailResolver,
     UserListResolver,
-   // UserEditResolver,
+   UserEditResolver,
     [
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
       ]

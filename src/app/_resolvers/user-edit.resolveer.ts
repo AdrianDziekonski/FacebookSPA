@@ -13,11 +13,12 @@ export class UserEditResolver implements Resolve<User>{
 
   constructor (private userService: UserService,
    private router:Router,
-   private alertify: AlertifyService, private authService: AuthService) {}
+   private alertify: AlertifyService,
+    private authService: AuthService) {}
 
 
    resolve(route: ActivatedRouteSnapshot):  Observable<User>  {
-    return this.userService.getUser(this.authService.decodedToken).pipe(
+    return this.userService.getUser(this.authService.decodedToken.nameid).pipe(
       catchError(error=>{
       this.alertify.error('Problem z pobraniem danych(Edit Resolver)');
       this.router.navigate(['/znajomi']);

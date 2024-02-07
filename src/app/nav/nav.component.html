@@ -1,37 +1,39 @@
 <nav class="navbar navbar-expand-md navbar-dark  bg-primary">
 
   <div class="container-fluid" bis_skin_checked="1">
-    <a class="navbar-brand"[routerLink]="['/home']"><b>PODWÓRKO</b></a>
+    <a class="navbar-brand" [routerLink]="['/home']"><b>PODWÓRKO</b></a>
 
     <ul *ngIf="loggedIn()" class="navbar-nav me-auto mb-2 mb-md-0">
       <li class="nav-item" routerLinkActive="router-link-active">
-        <a class="nav-link" aria-current="page" [routerLink]="['/znajomi']" >Znajomi</a>
+        <a class="nav-link" aria-current="page" [routerLink]="['/znajomi']">Znajomi</a>
       </li>
       <li class="nav-item" routerLinkActive="router-link-active">
-        <a class="nav-link" [routerLink]="['/statusy']"  >Statusy</a>
+        <a class="nav-link" [routerLink]="['/statusy']">Statusy</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/wiadomosci']"  aria-disabled="true">Wiadomości</a>
+        <a class="nav-link" [routerLink]="['/wiadomosci']" aria-disabled="true">Wiadomości</a>
       </li>
 
     </ul>
     <div *ngIf="loggedIn()" class="dropdown" dropdown>
-      <a class=" btn dropdown-toggle" href="#" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" dropdownToggle>
+      <a class=" btn dropdown-toggle" href="#" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true"
+        dropdownToggle>
         Witaj {{authService.decodedToken?.unique_name| titlecase}}
       </a>
 
-      <ul class="dropdown-menu mt-3"  *dropdownMenu>
-        <li><a class="dropdown-item" [routerLink]="['uzytkownik/edycja']"  ><i class="fa fa-user "></i>Edytuj profil</a></li>
+      <ul class="dropdown-menu mt-3" *dropdownMenu>
+        <li><a class="dropdown-item" [routerLink]="['uzytkownik/edycja']"><i class="fa fa-user "></i>Edytuj profil</a>
+        </li>
         <div class="dropdown-divider"></div>
         <li><a class="dropdown-item" (click)="loggedOut()"><i class="fa fa-sign-out "></i>Wyloguj</a></li>
       </ul>
     </div>
 
     <form *ngIf="!loggedIn()" #loginForm="ngForm" class="d-flex" role="search" (ngSubmit)="login()">
-      <input class="form-control me-2" type="text" placeholder="Nazwa użytkownika" [(ngModel)]="model.username" name="username"
+      <input class="form-control me-2" type="text" placeholder="Nazwa użytkownika" [(ngModel)]="model.username"
+        name="username" required>
+      <input class="form-control me-2" type="password" placeholder="Hasło" [(ngModel)]="model.password" name="password"
         required>
-      <input class="form-control me-2" type="password" placeholder="Hasło" [(ngModel)]="model.password"
-        name="password" required>
       <button [disabled]="!loginForm.valid" class="btn btn-outline-dark" type="submit"
         id="zalogujNavbar">Zaloguj</button>
     </form>

@@ -14,9 +14,9 @@ user: User;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-// this.route.data.subscribe(data=>{
-//   this.user=data.user;
-// });
+ this.route.data.subscribe(data=>{
+   this.user=data.user;
+ });
     }
   }
 
