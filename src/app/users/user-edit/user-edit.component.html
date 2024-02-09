@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
-    <h1>Edycja {{user.username | titlecase}}</h1>
+    <h1>Edycja profilu</h1>
   </div>
   <div class="col-sm-8">
-    <div class="alert alert-info">
-      <p><strong>Informacja: </strong>Dokonałeś zmian. Nie zapisane zmiany zostaną utracone!</p>
+    <div *ngIf="editForm.dirty" class="alert alert-info">
+      <strong>Informacja: </strong>Dokonałeś zmian. Nie zapisane zmiany zostaną utracone!
     </div>
   </div>
   </div>
@@ -31,14 +31,14 @@
           </div>
         </div>
         <div class="card-footer">
-            <button class="btn btn-success btn-sm"> Zapisz edycję profilu
+            <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-sm"> Zapisz edycję profilu
               <i class="fa fa-check-square btn-block"></i>
             </button>
         </div>
       </div>
     </div>
     <div class="col-sm-8">
-      <form>
+      <form #editForm="ngForm" (ngSubmit)="updateUser()" id="editForm" >
         <div class="tab-panel">
           <tabset class="user-tabset">
             <tab heading="Informacje">
@@ -122,7 +122,7 @@
               </tr>
             </tab>
             <tab heading="Zdjęcia">
-              <p>Edycja zdjęc do zrobenia</p>
+           <app-photos [photos]="user.photos"></app-photos>
 
             </tab>
           </tabset>

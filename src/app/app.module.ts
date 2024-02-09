@@ -29,6 +29,10 @@ import { UserListResolver } from './_resolvers/user-list-resolver';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { UserEditResolver } from './_resolvers/user-edit.resolveer';
+import { PreventUnsavesChanges } from './_guards/prevent-unsaved-changes.guard';
+import { PhotosComponent } from './users/photos/photos.component';
+
+import {FileUploadModule} from 'ng2-file-upload'
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -53,11 +57,13 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       UserCardComponent,
       UserDetailComponent,
       UserEditComponent,
+      PhotosComponent,
    ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    FileUploadModule,
     JwtModule.forRoot({
       config: {
        tokenGetter: tokenGetter,
@@ -82,6 +88,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     UserDetailResolver,
     UserListResolver,
    UserEditResolver,
+   PreventUnsavesChanges,
     [
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
       ]
