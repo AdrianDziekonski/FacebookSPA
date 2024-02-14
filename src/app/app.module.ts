@@ -1,5 +1,5 @@
 import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 
@@ -23,7 +23,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { UserCardComponent } from './users/userCard/userCard.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
-import { TabsModule } from 'ngx-bootstrap';
+import { BsDatepickerModule, ButtonsModule, PaginationModule, TabsModule } from 'ngx-bootstrap';
 import { UserDetailResolver } from './_resolvers/user-datail.resolveer';
 import { UserListResolver } from './_resolvers/user-list-resolver';
 import { NgxGalleryModule } from 'ngx-gallery';
@@ -33,6 +33,7 @@ import { PreventUnsavesChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotosComponent } from './users/photos/photos.component';
 
 import {FileUploadModule} from 'ng2-file-upload'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -63,7 +64,11 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     FileUploadModule,
+    BrowserAnimationsModule,
+    ButtonsModule.forRoot(),
+    PaginationModule.forRoot(),
     JwtModule.forRoot({
       config: {
        tokenGetter: tokenGetter,
@@ -76,7 +81,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
   NgxGalleryModule,
 
   [
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    BsDatepickerModule.forRoot()
   ]
   ],
   providers: [
@@ -94,6 +100,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       ]
 
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent]//,
+  //schemas:[NO_ERRORS_SCHEMA]
 })
 export class AppModule { }

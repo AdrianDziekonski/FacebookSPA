@@ -16,11 +16,57 @@
         na reklame miejsce na reklame
       </div>
       <div class="col-lg-10 col-md-8 col-sm-6">
+
+        <div class="text-center mt-3">
+          <h2>Liczba Twoich znajomych: {{pagination.totalItems}} </h2>
+        </div>
+
+        <form class="form-inline" #form="ngForm" (ngSubmit)="loadUsers()" novalidate>
+          <div class="form-group">
+            <label for="minAge">Wiek od</label>
+            <input type="number" class="form-control ml-1" style="width: 70px" id="minAge"
+                    [(ngModel)]="userParams.minAge" name="minAge">
+          </div>
+          <div class="form-group px-2">
+            <label for="maxAge">Wiek do</label>
+            <input type="number" class="form-control ml-1" style="width: 75px" id="maxAge"
+                    [(ngModel)]="userParams.maxAge" name="maxAge">
+
+
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-left:10px">Zastosuj filtr</button>
+          <button  type="button" class="btn btn-info" style="margin-left:10px" (click)="resetFilters()">Zresetuj filtr</button>
+        </form>
+        <br>
+
         <div class="row">
           <div *ngFor="let user of users" class="col-lg-2 col-md-4 col-sm-6">
             <app-userCard [user]="user"></app-userCard>
           </div>
         </div>
+
+        <div class="row">
+        <pagination [boundaryLinks]="true"
+        [totalItems]="pagination.totalItems"
+        [itemsPerPage]="pagination.itemsPerPage"
+        [(ngModel)]="pagination.currentPage"
+
+        (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;"
+          lastText="&raquo;">
+        </pagination>
+
+        <div class="col">
+          <div class="btn-group float-right">
+            <button btnRadio="" [(ngModel)]="userParams.orderBy" (click)="loadUsers()"
+                    type="button" name="orderBy" class="btn btn-primary">Sortuj A-Z</button>
+
+            <button btnRadio="Username" [(ngModel)]="userParams.orderBy" (click)="loadUsers()"
+                    type="button" name="orderBy" class="btn btn-primary">Sortuj Z-A</button>
+          </div>
+        </div>
+      </div>
+
+
       </div>
     </div>
   </div>

@@ -15,6 +15,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 export class UserEditComponent implements OnInit {
 
 user: User;
+photoUrl: string;
 @ViewChild('editForm', {static: false}) editForm: NgForm;   //odwołanie do formularza edycji
 @HostListener('window: beforeunload', ['$event'])           //zabezpiecznie usunięcia nizapisanych danych po zamknieciu karty
 unloadNotification($event : any){
@@ -33,6 +34,7 @@ if(this.editForm.dirty){
  this.route.data.subscribe(data=>{
    this.user=data.user;
  });
+ this.authService.currentPhotoUrl.subscribe(photoUrl=> this.photoUrl=photoUrl);
     }
 
 
@@ -46,6 +48,10 @@ if(this.editForm.dirty){
         this.alertify.error(error);
       });
 
+    }
+
+    updateMainPhoto(photoUrl){
+      this.user.photoUrl=photoUrl;
     }
   }
 
