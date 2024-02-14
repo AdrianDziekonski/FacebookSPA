@@ -34,6 +34,7 @@ import { PhotosComponent } from './users/photos/photos.component';
 
 import {FileUploadModule} from 'ng2-file-upload'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LikesResolver } from './_resolvers/likeResolvers';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -94,6 +95,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     UserDetailResolver,
     UserListResolver,
    UserEditResolver,
+   LikesResolver,
    PreventUnsavesChanges,
     [
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }

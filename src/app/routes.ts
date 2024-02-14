@@ -10,6 +10,7 @@ import { UserListResolver } from "./_resolvers/user-list-resolver";
 import { UserEditComponent } from "./users/user-edit/user-edit.component";
 import { UserEditResolver } from "./_resolvers/user-edit.resolveer";
 import { PreventUnsavesChanges } from './_guards/prevent-unsaved-changes.guard';
+import { LikesResolver } from './_resolvers/likeResolvers';
 
 
 export const appRoutes: Routes=[
@@ -21,7 +22,7 @@ children:[
   {path: 'znajomi', component: UserListComponent,resolve: {users:UserListResolver}}, //auth guard zabezpieczenie routingu (w folderze app jest)
   {path: 'znajomi/:id', component: UserDetailComponent, resolve: {user:UserDetailResolver}},
   {path: 'uzytkownik/edycja', component: UserEditComponent, resolve: {user:UserEditResolver, //canDeactivate: [PreventUnsavesChanges]}}, jakis problem z tym zabezpieczniem- narzie odpuszcone
-}}, {path: 'statusy', component: LikesComponent},
+}}, {path: 'statusy', component: LikesComponent, resolve: {users: LikesResolver}},
   {path: 'wiadomosci', component: MessagesComponent},
 
 ]
