@@ -25,10 +25,10 @@
         </div>
         <div class="card-footer">
           <div class="btn-group d-flex">
-          <button class="btn btn-warning btn-sm" >
+          <button class="btn btn-warning btn-sm" (click)="sendLike(user.id)" >
             <i class="fa fa-thumbs-up"></i>
           </button>
-          <button class="btn btn-success btn-sm">
+          <button class="btn btn-success btn-sm" (click)="selectTab(4)" >
             <i class="fa fa-envelope"></i>
           </button>
         </div>
@@ -37,7 +37,7 @@
     </div>
     <div class="col-sm-8">
      <div class="tab-panel">
-      <tabset class="user-tabset">
+      <tabset class="user-tabset" #userTabs>
         <tab heading="Informacje o {{user.username | titlecase}}">
         <table class="user-table" >
 <tr>
@@ -123,6 +123,7 @@
 
       </tab>
       <tab heading="Wiadomości">
+        <app-user-messages [recipientId]="user.id"></app-user-messages>
 
       </tab>
       </tabset>

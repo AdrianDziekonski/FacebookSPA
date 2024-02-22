@@ -1,10 +1,10 @@
 import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
-import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { NO_ERRORS_SCHEMA, NgModule  } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 
 import { AuthService } from './_services/auth.service';
@@ -32,35 +32,45 @@ import { UserEditResolver } from './_resolvers/user-edit.resolveer';
 import { PreventUnsavesChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotosComponent } from './users/photos/photos.component';
 
-import {FileUploadModule} from 'ng2-file-upload'
+import { FileUploadModule } from 'ng2-file-upload'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LikesResolver } from './_resolvers/likeResolvers';
+import { MessagesResolver } from './_resolvers/messages-resolver';
+import { TimeAgoPipe } from '../app/_pipes/time-ago-pipe';
+import { UserMessagesComponent } from './users/user-messages/user-messages.component';
 
-export function tokenGetter(){
+
+
+
+export function tokenGetter() {
   return localStorage.getItem('token');
 }
 
-export class CustomHammerConfig extends HammerGestureConfig  {
+export class CustomHammerConfig extends HammerGestureConfig {
   overrides = {
-      pinch: { enable: false },
-      rotate: { enable: false }
+    pinch: { enable: false },
+    rotate: { enable: false }
   };
 }
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-      NavComponent,
-      HomeComponent,
-      RegisterComponent,
-      UserListComponent,
-      LikesComponent,
-      MessagesComponent,
-      UserCardComponent,
-      UserDetailComponent,
-      UserEditComponent,
-      PhotosComponent,
-   ],
+    NavComponent,
+    HomeComponent,
+    RegisterComponent,
+    UserListComponent,
+    LikesComponent,
+    MessagesComponent,
+    UserCardComponent,
+    UserDetailComponent,
+    UserEditComponent,
+    TimeAgoPipe,
+    UserMessagesComponent,
+    PhotosComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -72,19 +82,19 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     PaginationModule.forRoot(),
     JwtModule.forRoot({
       config: {
-       tokenGetter: tokenGetter,
-       whitelistedDomains: ['localhost:5000'],
-       blacklistedRoutes: ['locahost:5000/api/auth']
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ['localhost:5000'],
+        blacklistedRoutes: ['locahost:5000/api/auth']
       }
-  }),
-  RouterModule.forRoot(appRoutes),
-  TabsModule.forRoot(),
-  NgxGalleryModule,
+    }),
+    RouterModule.forRoot(appRoutes),
+    TabsModule.forRoot(),
+    NgxGalleryModule,
 
-  [
-    BsDropdownModule.forRoot(),
-    BsDatepickerModule.forRoot()
-  ]
+    [
+      BsDropdownModule.forRoot(),
+      BsDatepickerModule.forRoot()
+    ]
   ],
   providers: [
     AuthService,
@@ -94,12 +104,13 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     ErrorInterceptorProvider,
     UserDetailResolver,
     UserListResolver,
-   UserEditResolver,
-   LikesResolver,
-   PreventUnsavesChanges,
+    UserEditResolver,
+    LikesResolver,
+    MessagesResolver,
+    PreventUnsavesChanges,
     [
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
-      ]
+    ]
 
   ],
   bootstrap: [AppComponent]//,

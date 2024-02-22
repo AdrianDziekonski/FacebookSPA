@@ -11,6 +11,7 @@ import { UserEditComponent } from "./users/user-edit/user-edit.component";
 import { UserEditResolver } from "./_resolvers/user-edit.resolveer";
 import { PreventUnsavesChanges } from './_guards/prevent-unsaved-changes.guard';
 import { LikesResolver } from './_resolvers/likeResolvers';
+import { MessagesResolver } from './_resolvers/messages-resolver';
 
 
 export const appRoutes: Routes=[
@@ -23,7 +24,7 @@ children:[
   {path: 'znajomi/:id', component: UserDetailComponent, resolve: {user:UserDetailResolver}},
   {path: 'uzytkownik/edycja', component: UserEditComponent, resolve: {user:UserEditResolver, //canDeactivate: [PreventUnsavesChanges]}}, jakis problem z tym zabezpieczniem- narzie odpuszcone
 }}, {path: 'statusy', component: LikesComponent, resolve: {users: LikesResolver}},
-  {path: 'wiadomosci', component: MessagesComponent},
+  {path: 'wiadomosci', component: MessagesComponent, resolve: {messages: MessagesResolver}},
 
 ]
 },
