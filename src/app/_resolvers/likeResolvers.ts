@@ -6,6 +6,8 @@ import { UserService } from '../_services/user.service';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
+//Resolver jest mechanizmem umożliwiającym doczytanie danych do komponentu, zanim ten zostanie załadowany. Można w nim wykonać kod asynchroniczny lub zwrócić dane statyczne. W celu utworzenie resolvera wystarczy utworzyć klasę, zaimplementować generyczny interfejs Resolve<T> oraz udekorować ją dekoratorem @Injectable(). Aby resolver działał należy połączyć go z danym komponentem w definicjach routingu.
+
 
 @Injectable()
 export class LikesResolver implements Resolve<User[]>{

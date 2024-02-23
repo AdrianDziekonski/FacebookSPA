@@ -1,3 +1,5 @@
+//pipe time ago ładniej prezentuje dane, jest wile innych pipów
+
 import {Pipe, PipeTransform, NgZone, ChangeDetectorRef, OnDestroy} from '@angular/core';
 @Pipe({
     name: 'timeAgo',

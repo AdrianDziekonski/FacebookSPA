@@ -31,3 +31,7 @@ confirm(message: string, okCallback: () => any) {
 }
 
 }
+
+//Service to szeroka kategoria obejmująca dowolną wartość, funkcję lub cechę potrzebną aplikacji. Usługa to zazwyczaj klasa o wąskim, dobrze zdefiniowanym celu. Powinien robić coś konkretnego i robić to dobrze.
+
+
