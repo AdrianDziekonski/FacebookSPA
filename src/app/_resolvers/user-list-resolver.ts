@@ -11,7 +11,7 @@ import { catchError } from 'rxjs/operators';
 export class UserListResolver implements Resolve<User[]>{
 
   pageNumber=1;
-  pageSize=36;   //tu można ustawić lu uzytkowników wyswietla na stronie
+  pageSize=18;   //tu można ustawić lu uzytkowników wyswietla na stronie
 
   constructor (private userService: UserService,
     private route:ActivatedRoute,private router:Router,

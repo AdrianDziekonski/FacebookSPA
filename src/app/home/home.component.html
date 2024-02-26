@@ -1,21 +1,24 @@
-<div class="container mt-5" >
+<div class="container mt-5">
   <div *ngIf="!registerMode" style="text-align:center">
     <h1>Chodź na podwórko!</h1>
     <p class="lead">ZAREJESTRUJ SIĘ</p>
-<div class="tect-center">
-  <button class="btn btn-primary btn-lg mr-3" (click)="registerToggle()">Rejestracja</button>
-  <button class="btn btn-info btn-lg ml-3" >Informacje</button>
-</div>
-  </div>
-<div *ngIf="registerMode" class="container">
-  <div class="row justify-content-center">
-    <div class="col-4">
-<app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+    <div class="tect-center">
+      <button class="btn btn-primary btn-lg mr-3" (click)="registerToggle()">Rejestracja</button>
+
     </div>
   </div>
+  <span><br>Aplikacja Podwórko, powstała w celu nauki programowania pokazania dotychczas zdobytej wiedzy. Wzorowana jest
+    w pewnym stopniu na dobrze wszystkim znanym Facebooku. Aplikacja ASP.NET Core Web API z wykorzystaniem Angular
+    stworzona została na podstawie internetowego kursu.
+    <br>By sprawdzić jej funkcjonalność można wypełnić krótki formularz rejestracyjny lub zalogować się na jednego z
+    poniższych przykładowych użytkowników, dla każdego z nich hasło to password:<br> -Hunter, <br> -Bertie, <br> -Wanda,
+    <br> -Ramona, <br> -Carter, <br> -Abbott. </span>
+  <div *ngIf="registerMode" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+      </div>
+    </div>
 
+  </div>
 </div>
-</div>
-
-
-
