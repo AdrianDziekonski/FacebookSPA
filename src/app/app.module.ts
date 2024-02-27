@@ -83,8 +83,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: ['localhost:5000'],
-        blacklistedRoutes: ['locahost:5000/api/auth']
+        whitelistedDomains: ['podworko.hostingasp.pl'],
+        blacklistedRoutes: ['podworko.hostingasp.pl/api/auth']
       }
     }),
     RouterModule.forRoot(appRoutes),
